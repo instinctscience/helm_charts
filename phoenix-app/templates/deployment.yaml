@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "phoenix-app.fullname" . }}
+  labels:
+    app: {{ template "phoenix-app.name" . }}
+    chart: {{ template "phoenix-app.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "phoenix-app.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "phoenix-app.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: APP_HOST
+              value: "{{ .Release.Namespace }}.{{ .Values.app.hostBase }}"
+            - name: APP_PORT
+              value: "{{ .Values.app.port }}"
+            - name: DATABASE_URL
+              value: "ecto://postgres:postgres@db-postgresql.{{ .Release.Namespace }}.svc.cluster.local/dm"
+            - name: AUTH0_DOMAIN
+              value: "{{ .Values.app.auth0Domain }}"
+            - name: AUTH0_CLIENT_ID
+              value: "{{ .Values.app.auth0ClientId }}"
+            - name: AUTH0_CLIENT_SECRET
+              value: "{{ .Values.app.auth0ClientSecret }}"
+            - name: SECRET_KEY_BASE
+              value: MNccpJLYGYM9dsKRJoUa/3//UuhzcFEPO6tsg8BZ6wol6Wd29/XKEtum4WBQgNn+
+
+          ports:
+            - containerPort: {{ .Values.app.port }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.app.port }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.app.port }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "phoenix-app.fullname" . }}
+  labels:
+    app: {{ template "phoenix-app.name" . }}
+    chart: {{ template "phoenix-app.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: "{{ .Release.Namespace }}.testing.scripts.vet."
+    # Note that the backend talks over TCP to support Web Sockets.
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
+    # TODO: Fill in with the ARN of your certificate.
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-east-2:192666156024:certificate/3e347809-4f8c-421d-9c87-6dcd638bb91d
+    # Only run SSL on the port named "https" below.
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    # - name: http
+    #   port: 80
+    #   targetPort: {{ .Values.app.port }}
+    #   protocol: TCP
+    - name: https
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.app.port }}
+      protocol: TCP
+  selector:
+    app: {{ template "phoenix-app.name" . }}
+    release: {{ .Release.Name }}
