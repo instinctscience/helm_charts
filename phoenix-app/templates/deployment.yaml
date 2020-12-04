@@ -29,7 +29,7 @@ spec:
             - name: APP_PORT
               value: "{{ .Values.app.port }}"
             - name: DATABASE_URL
-              value: "{{ .Values.app.dbUrl }} "
+              value: "{{ .Values.app.dbUrl }}"
             - name: AUTH0_DOMAIN
               value: "{{ .Values.app.auth0Domain }}"
             - name: AUTH0_CLIENT_ID
