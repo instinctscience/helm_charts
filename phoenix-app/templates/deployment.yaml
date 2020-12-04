@@ -25,11 +25,11 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: APP_HOST
-              value: "{{ .Release.Namespace }}.{{ .Values.app.hostBase }}"
+              value: "{{ .Values.app.host }}"
             - name: APP_PORT
               value: "{{ .Values.app.port }}"
             - name: DATABASE_URL
-              value: "ecto://postgres:postgres@db-postgresql.{{ .Release.Namespace }}.svc.cluster.local/dm"
+              value: "{{ .Values.app.dbUrl }} "
             - name: AUTH0_DOMAIN
               value: "{{ .Values.app.auth0Domain }}"
             - name: AUTH0_CLIENT_ID
@@ -37,7 +37,7 @@ spec:
             - name: AUTH0_CLIENT_SECRET
               value: "{{ .Values.app.auth0ClientSecret }}"
             - name: SECRET_KEY_BASE
-              value: MNccpJLYGYM9dsKRJoUa/3//UuhzcFEPO6tsg8BZ6wol6Wd29/XKEtum4WBQgNn+
+              value: "{{ .Values.app.secretKeyBase }}"
 
           ports:
             - containerPort: {{ .Values.app.port }}
