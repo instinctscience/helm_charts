@@ -38,6 +38,16 @@ spec:
               value: "{{ .Values.app.auth0ClientSecret }}"
             - name: SECRET_KEY_BASE
               value: "{{ .Values.app.secretKeyBase }}"
+            - name: DM_QA_SEEDS_ENABLED
+              value: "{{ .Values.app.dmQaSeedsEnabled }}"
+            - name: DM_ROOT_ENABLED
+              value: "{{ .Values.app.dmRootEnabled }}"
+            - name: DM_RX_CODE_BASE_LENGTH
+              value: "{{ .Values.app.dmRxCodeBaseLength }}"
+            - name: SMTP_USERNAME
+              value: "{{ .Values.app.smtpUsername }}"
+            - name: SMTP_PASSWORD
+              value: "{{ .Values.app.smtpPassword }}"
 
           ports:
             - containerPort: {{ .Values.app.port }}
