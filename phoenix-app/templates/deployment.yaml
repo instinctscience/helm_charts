@@ -38,6 +38,8 @@ spec:
               value: "{{ .Values.app.auth0ClientSecret }}"
             - name: SECRET_KEY_BASE
               value: "{{ .Values.app.secretKeyBase }}"
+            - name: DM_EMAIL_FROM
+              value: "{{ .Values.app.dmEmailFrom }}"
             - name: DM_SEEDER_QA_ENABLED
               value: "{{ .Values.app.dmSeederQAEnabled }}"
             - name: DM_SEEDER_MINIMAL_ENABLED
