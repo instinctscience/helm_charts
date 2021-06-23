@@ -48,6 +48,8 @@ spec:
               value: "{{ .Values.app.dmRootEnabled }}"
             - name: DM_RX_CODE_BASE_LENGTH
               value: "{{ .Values.app.dmRxCodeBaseLength }}"
+            - name: SMTP_HOSTNAME
+              value: "{{ .Values.app.smtpHostname }}"
             - name: SMTP_USERNAME
               value: "{{ .Values.app.smtpUsername }}"
             - name: SMTP_PASSWORD
@@ -58,12 +60,14 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: /status
               port: {{ .Values.app.port }}
+            initialDelaySeconds: 20
           readinessProbe:
             httpGet:
-              path: /
+              path: /status
               port: {{ .Values.app.port }}
+            initialDelaySeconds: 20
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
