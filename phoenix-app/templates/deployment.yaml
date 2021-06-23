@@ -38,8 +38,10 @@ spec:
               value: "{{ .Values.app.auth0ClientSecret }}"
             - name: SECRET_KEY_BASE
               value: "{{ .Values.app.secretKeyBase }}"
-            - name: DM_QA_SEEDS_ENABLED
-              value: "{{ .Values.app.dmQaSeedsEnabled }}"
+            - name: DM_SEEDER_QA_ENABLED
+              value: "{{ .Values.app.dmSeederQaEnabled }}"
+            - name: DM_SEEDER_MINIMAL_ENABLED
+              value: "{{ .Values.app.dmSeederMinimalEnabled }}"
             - name: DM_ROOT_ENABLED
               value: "{{ .Values.app.dmRootEnabled }}"
             - name: DM_RX_CODE_BASE_LENGTH
