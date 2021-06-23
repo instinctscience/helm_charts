@@ -39,7 +39,7 @@ spec:
             - name: SECRET_KEY_BASE
               value: "{{ .Values.app.secretKeyBase }}"
             - name: DM_SEEDER_QA_ENABLED
-              value: "{{ .Values.app.dmSeederQaEnabled }}"
+              value: "{{ .Values.app.dmSeederQAEnabled }}"
             - name: DM_SEEDER_MINIMAL_ENABLED
               value: "{{ .Values.app.dmSeederMinimalEnabled }}"
             - name: DM_ROOT_ENABLED
