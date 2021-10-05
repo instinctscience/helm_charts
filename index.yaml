@@ -15,7 +15,7 @@ entries:
     digest: 7215e03bd5bd983b3e9ea23491f695c3e5b1f8ae24aa640a0f0ad308d8bb3041
     name: phoenix-app
     urls:
-    - https://instinctscience.github.io/helm_charts/phoenix-app/phoenix-app-0.3.0.tgz
+    - https://instinctscience.github.io/helm_charts/phoenix-app-0.3.0.tgz
     version: 0.3.0
   - apiVersion: v2
     appVersion: 0.2.0
