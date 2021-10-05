@@ -1,8 +1,8 @@
 apiVersion: v2
-appVersion: 0.2.0
+appVersion: 0.3.0
 description: A generic Helm chart for deploying Elixir 1.9+ releases of Phoenix applicaitons to Kubernetes
 name: phoenix-app
-version: 0.2.0
+version: 0.3.0
 engine: gotpl
 dependencies:
   - name: common
