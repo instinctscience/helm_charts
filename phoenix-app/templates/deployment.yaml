@@ -18,9 +18,7 @@ spec:
       labels:
         app: {{ template "phoenix-app.name" . }}
         release: {{ .Release.Name }}
-        # role: service
     spec:
-      serviceAccountName: "endpoint-lookup"
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
