@@ -32,3 +32,18 @@ spec:
   selector:
     app: {{ template "phoenix-app.name" . }}
     release: {{ .Release.Name }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: phoenix-app-headless
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+    - port: 4369
+      targetPort: epmd
+      protocol: TCP
+      name: epmd
+  selector:
+    app: {{ template "phoenix-app.name" . }}
