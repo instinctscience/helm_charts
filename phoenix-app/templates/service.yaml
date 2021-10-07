@@ -40,8 +40,6 @@ metadata:
   labels:
     app: {{ template "phoenix-app.name" . }}
 spec:
-  ports:
-    - port: 4000
   clusterIP: None
   # The selector is just a way to filter the pods on which the app is deployed.
   # It should match up with the labels specified above
