@@ -42,10 +42,6 @@ metadata:
 spec:
   ports:
     - port: 4000
-    - port: 4369
-      targetPort: epmd
-      protocol: TCP
-      name: epmd
   clusterIP: None
   # The selector is just a way to filter the pods on which the app is deployed.
   # It should match up with the labels specified above
