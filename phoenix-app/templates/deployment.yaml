@@ -70,12 +70,12 @@ spec:
             httpGet:
               path: /status
               port: {{ .Values.app.port }}
-            initialDelaySeconds: 20
+            initialDelaySeconds: 40
           readinessProbe:
             httpGet:
               path: /status
               port: {{ .Values.app.port }}
-            initialDelaySeconds: 20
+            initialDelaySeconds: 40
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
