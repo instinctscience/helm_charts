@@ -41,6 +41,7 @@ metadata:
     app: {{ template "phoenix-app.name" . }}
 spec:
   clusterIP: None
+  publishNotReadyAddresses: true
   # The selector is just a way to filter the pods on which the app is deployed.
   # It should match up with the labels specified above
   selector:
