@@ -1,0 +1,48 @@
+apiVersion: v1
+entries:
+  common:
+  - annotations:
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 1.6.0
+    created: "2021-10-12T15:46:18.930337-04:00"
+    description: A Library Helm Chart for grouping common logic between bitnami charts.
+      This chart is not deployable by itself.
+    digest: 8ac7dd1925f078eb669adbbf4df6fab0295cc12488357ad6644c2e0c2a4ccf3c
+    home: https://github.com/bitnami/charts/tree/master/bitnami/common
+    icon: https://bitnami.com/downloads/logos/bitnami-mark.png
+    keywords:
+    - common
+    - helper
+    - template
+    - function
+    - bitnami
+    maintainers:
+    - email: containers@bitnami.com
+      name: Bitnami
+    name: common
+    sources:
+    - https://github.com/bitnami/charts
+    - http://www.bitnami.com/
+    type: library
+    urls:
+    - https://instinctscience.github.io/helm_charts/charts/common-1.6.0.tgz
+    version: 1.6.0
+  phoenix-app:
+  - apiVersion: v2
+    appVersion: 0.3.0
+    created: "2021-10-12T15:46:18.929664-04:00"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    description: A generic Helm chart for deploying Elixir 1.9+ releases of Phoenix
+      applicaitons to Kubernetes
+    digest: 83ea6fd11f2fbc03861a52a864627659e5b2dfef0b4f905c852e88c527087dee
+    name: phoenix-app
+    urls:
+    - https://instinctscience.github.io/helm_charts/phoenix-app-0.3.0.tgz
+    version: 0.3.0
+generated: "2021-10-12T15:46:18.926802-04:00"
