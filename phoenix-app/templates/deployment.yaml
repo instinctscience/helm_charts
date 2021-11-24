@@ -62,6 +62,8 @@ spec:
               value: "{{ .Values.app.smtpUsername }}"
             - name: SMTP_PASSWORD
               value: "{{ .Values.app.smtpPassword }}"
+            - name: GOOGLE_MAPS_API_KEY
+              value: "{{ .Values.app.googleMapsApiKey }}"
 
           ports:
             - containerPort: {{ .Values.app.port }}
