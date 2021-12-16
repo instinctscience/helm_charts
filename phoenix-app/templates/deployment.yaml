@@ -1,3 +1,5 @@
+{{- $image := .Values.image | default dict }}
+{{- $app := .Values.app | default dict }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -21,8 +23,8 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ $image.repository }}:{{ $image.tag }}"
+          imagePullPolicy: {{ $image.pullPolicy }}
           env:
             - name: NAMESPACE
               valueFrom:
@@ -33,50 +35,50 @@ spec:
                 fieldRef:
                   fieldPath: status.podIP
             - name: APP_HOST
-              value: "{{ .Values.app.host }}"
+              value: "{{ $app.host }}"
             - name: APP_PORT
-              value: "{{ .Values.app.port }}"
+              value: "{{ $app.port }}"
             - name: DATABASE_URL
-              value: "{{ .Values.app.dbUrl }}"
+              value: "{{ $app.dbUrl }}"
             - name: AUTH0_DOMAIN
-              value: "{{ .Values.app.auth0Domain }}"
+              value: "{{ $app.auth0Domain }}"
             - name: AUTH0_CLIENT_ID
-              value: "{{ .Values.app.auth0ClientId }}"
+              value: "{{ $app.auth0ClientId }}"
             - name: AUTH0_CLIENT_SECRET
-              value: "{{ .Values.app.auth0ClientSecret }}"
+              value: "{{ $app.auth0ClientSecret }}"
             - name: SECRET_KEY_BASE
-              value: "{{ .Values.app.secretKeyBase }}"
+              value: "{{ $app.secretKeyBase }}"
             - name: DM_EMAIL_FROM
-              value: "{{ .Values.app.dmEmailFrom }}"
+              value: "{{ $app.dmEmailFrom }}"
             - name: DM_SEEDER_QA_ENABLED
-              value: "{{ .Values.app.dmSeederQAEnabled }}"
+              value: "{{ $app.dmSeederQAEnabled }}"
             - name: DM_SEEDER_MINIMAL_ENABLED
-              value: "{{ .Values.app.dmSeederMinimalEnabled }}"
+              value: "{{ $app.dmSeederMinimalEnabled }}"
             - name: DM_ROOT_ENABLED
-              value: "{{ .Values.app.dmRootEnabled }}"
+              value: "{{ $app.dmRootEnabled }}"
             - name: DM_RX_CODE_BASE_LENGTH
-              value: "{{ .Values.app.dmRxCodeBaseLength }}"
+              value: "{{ $app.dmRxCodeBaseLength }}"
             - name: SMTP_HOSTNAME
-              value: "{{ .Values.app.smtpHostname }}"
+              value: "{{ $app.smtpHostname }}"
             - name: SMTP_USERNAME
-              value: "{{ .Values.app.smtpUsername }}"
+              value: "{{ $app.smtpUsername }}"
             - name: SMTP_PASSWORD
-              value: "{{ .Values.app.smtpPassword }}"
+              value: "{{ $app.smtpPassword }}"
             - name: GOOGLE_MAPS_API_KEY
-              value: "{{ .Values.app.googleMapsApiKey }}"
+              value: "{{ $app.googleMapsApiKey }}"
 
           ports:
-            - containerPort: {{ .Values.app.port }}
+            - containerPort: {{ $app.port }}
               protocol: TCP
           livenessProbe:
             httpGet:
               path: /status
-              port: {{ .Values.app.port }}
+              port: {{ $app.port }}
             initialDelaySeconds: 40
           readinessProbe:
             httpGet:
               path: /status
-              port: {{ .Values.app.port }}
+              port: {{ $app.port }}
             initialDelaySeconds: 20
           resources:
 {{ toYaml .Values.resources | indent 12 }}

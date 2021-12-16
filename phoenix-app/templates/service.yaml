@@ -1,3 +1,5 @@
+{{- $service := .Values.service | default dict }}
+{{- $app := .Values.app | default dict }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -8,8 +10,8 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
   annotations:
-{{- if .Values.service.annotations }}
-  {{- toYaml .Values.service.annotations | nindent 4 }}
+{{- if $service.annotations }}
+  {{- toYaml $service.annotations | nindent 4 }}
 {{- end }}
     # external-dns.alpha.kubernetes.io/hostname: "{{ .Release.Namespace }}.testing.scripts.vet."
     # Note that the backend talks over TCP to support Web Sockets.
@@ -19,15 +21,15 @@ metadata:
     # Only run SSL on the port named "https" below.
     service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ $service.type }}
   ports:
     # - name: http
     #   port: 80
-    #   targetPort: {{ .Values.app.port }}
+    #   targetPort: {{ $app.port }}
     #   protocol: TCP
     - name: https
-      port: {{ .Values.service.port }}
-      targetPort: {{ .Values.app.port }}
+      port: {{ $service.port }}
+      targetPort: {{ $app.port }}
       protocol: TCP
   selector:
     app: {{ template "phoenix-app.name" . }}
