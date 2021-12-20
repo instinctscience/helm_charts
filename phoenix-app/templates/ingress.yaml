@@ -1,7 +1,8 @@
-{{- if .Values.ingress.enabled -}}
+{{- $ingress := .Values.ingress | default dict }}
+{{- if $ingress.enabled -}}
 {{- $fullName := include "phoenix-app.fullname" . -}}
 {{- $servicePort := .Values.service.port -}}
-{{- $ingressPath := .Values.ingress.path -}}
+{{- $ingressPath := $ingress.path -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -11,14 +12,14 @@ metadata:
     chart: {{ template "phoenix-app.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-{{- with .Values.ingress.annotations }}
+{{- with $ingress.annotations }}
   annotations:
 {{ toYaml . | indent 4 }}
 {{- end }}
 spec:
-{{- if .Values.ingress.tls }}
+{{- if $ingress.tls }}
   tls:
-  {{- range .Values.ingress.tls }}
+  {{- range $ingress.tls }}
     - hosts:
       - "{{ .Release.Namespace }}.testing.scripts.vet"
       {{- range .hosts }}
