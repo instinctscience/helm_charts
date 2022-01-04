@@ -54,6 +54,9 @@ spec:
               value: "{{ $app.dmSeederQAEnabled }}"
             - name: DM_SEEDER_MINIMAL_ENABLED
               value: "{{ $app.dmSeederMinimalEnabled }}"
+            # DM_ROOT_ENABLED IS DEPRECATED. WE CAN REMOVE IT SOON. -AB
+            - name: DM_ROOT_ENABLED
+              value: "{{ $app.dmRootEnabled }}"
             - name: DM_BACKDOOR_ENABLED
               value: "{{ $app.dmBackdoorEnabled }}"
             - name: DM_SEEDLINGS_ENABLED

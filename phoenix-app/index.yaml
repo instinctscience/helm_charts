@@ -5,7 +5,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 1.6.0
-    created: "2021-12-22T10:06:00.336776-05:00"
+    created: "2022-01-04T14:30:32.702788-05:00"
     description: A Library Helm Chart for grouping common logic between bitnami charts.
       This chart is not deployable by itself.
     digest: 8ac7dd1925f078eb669adbbf4df6fab0295cc12488357ad6644c2e0c2a4ccf3c
@@ -31,7 +31,7 @@ entries:
   phoenix-app:
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2021-12-22T10:06:00.336315-05:00"
+    created: "2022-01-04T14:30:32.702162-05:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -40,14 +40,14 @@ entries:
       version: 1.x.x
     description: A generic Helm chart for deploying Elixir 1.9+ releases of Phoenix
       applicaitons to Kubernetes
-    digest: e4e3e60b58aed68d368e58a3b6cb40beb2fb538845760f029aa984f84a4b5c2e
+    digest: 2e7c529f1ca3bcfb1237926ab4cadde8ad0ebeff4d467a26208fccea0f1baa8f
     name: phoenix-app
     urls:
     - https://instinctscience.github.io/helm_charts/phoenix-app-0.4.0.tgz
     version: 0.4.0
   - apiVersion: v2
     appVersion: 0.3.0
-    created: "2021-12-22T10:06:00.335476-05:00"
+    created: "2022-01-04T14:30:32.700867-05:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -61,4 +61,4 @@ entries:
     urls:
     - https://instinctscience.github.io/helm_charts/phoenix-app-0.3.0.tgz
     version: 0.3.0
-generated: "2021-12-22T10:06:00.334543-05:00"
+generated: "2022-01-04T14:30:32.699867-05:00"
