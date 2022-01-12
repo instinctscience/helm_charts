@@ -2,8 +2,24 @@ apiVersion: v1
 entries:
   phoenix-app:
   - apiVersion: v2
+    appVersion: 0.4.2
+    created: "2022-01-12T13:47:42.626475-05:00"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    description: A generic Helm chart for deploying Elixir 1.9+ releases of Phoenix
+      applicaitons to Kubernetes
+    digest: 86af04aafea4dd6632ec39554be59825fb9cc93869bd6fd6d0dac3e18c4683b1
+    name: phoenix-app
+    urls:
+    - https://instinctscience.github.io/helm_charts/phoenix-app-0.4.2.tgz
+    version: 0.4.2
+  - apiVersion: v2
     appVersion: 0.4.1
-    created: "2022-01-05T11:06:59.843232-05:00"
+    created: "2022-01-12T13:47:42.62494-05:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -19,7 +35,7 @@ entries:
     version: 0.4.1
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2022-01-05T11:06:59.845254-05:00"
+    created: "2022-01-12T13:47:42.628957-05:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -35,7 +51,7 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2022-01-05T11:06:59.841316-05:00"
+    created: "2022-01-12T13:47:42.6228-05:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -51,23 +67,7 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: 0.3.0
-    created: "2022-01-05T11:06:59.839882-05:00"
-    dependencies:
-    - name: common
-      repository: https://charts.bitnami.com/bitnami
-      tags:
-      - bitnami-common
-      version: 1.x.x
-    description: A generic Helm chart for deploying Elixir 1.9+ releases of Phoenix
-      applicaitons to Kubernetes
-    digest: d4005dcc822eeebfd8c30127a60a8eaced35997c9612462f2e5746937cabbe11
-    name: phoenix-app
-    urls:
-    - https://instinctscience.github.io/helm_charts/phoenix-app-0.3.0.tgz
-    version: 0.3.0
-  - apiVersion: v2
-    appVersion: 0.3.0
-    created: "2022-01-05T11:06:59.843999-05:00"
+    created: "2022-01-12T13:47:42.627372-05:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -82,8 +82,24 @@ entries:
     - https://instinctscience.github.io/helm_charts/phoenix-app/phoenix-app-0.3.0.tgz
     version: 0.3.0
   - apiVersion: v2
+    appVersion: 0.3.0
+    created: "2022-01-12T13:47:42.621746-05:00"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    description: A generic Helm chart for deploying Elixir 1.9+ releases of Phoenix
+      applicaitons to Kubernetes
+    digest: d4005dcc822eeebfd8c30127a60a8eaced35997c9612462f2e5746937cabbe11
+    name: phoenix-app
+    urls:
+    - https://instinctscience.github.io/helm_charts/phoenix-app-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     appVersion: 0.2.0
-    created: "2022-01-05T11:06:59.838209-05:00"
+    created: "2022-01-12T13:47:42.620458-05:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -99,7 +115,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2022-01-05T11:06:59.837119-05:00"
+    created: "2022-01-12T13:47:42.619466-05:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -113,4 +129,4 @@ entries:
     urls:
     - https://instinctscience.github.io/helm_charts/phoenix-app-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-05T11:06:59.835755-05:00"
+generated: "2022-01-12T13:47:42.617987-05:00"

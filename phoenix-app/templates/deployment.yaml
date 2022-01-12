@@ -48,6 +48,8 @@ spec:
               value: "{{ $app.auth0ClientSecret }}"
             - name: SECRET_KEY_BASE
               value: "{{ $app.secretKeyBase }}"
+            - name: RELEASE_COOKIE
+              value: "{{ $app.releaseCookie }}"
             - name: DM_EMAIL_FROM
               value: "{{ $app.dmEmailFrom }}"
             - name: DM_SEEDER_QA_ENABLED
